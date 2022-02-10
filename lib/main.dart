@@ -12,19 +12,22 @@ class MyApp extends StatelessWidget {
       title: 'IT Department',
       home: Scaffold(
         appBar: AppBar(
-          leading: PopupMenuButton(
-            icon: Icon(Icons.menu), //don't specify icon if you want 3 dot menu
-            color: Colors.blue,
-            itemBuilder: (context) => [
-              PopupMenuItem<int>(
-                value: 0,
-                child: Text(
-                  "Setting",
-                  style: TextStyle(color: Colors.white),
+          leading: Builder(
+            builder: (context) => PopupMenuButton(
+              icon:
+                  Icon(Icons.menu), //don't specify icon if you want 3 dot menu
+              color: Colors.blue,
+              itemBuilder: (context) => [
+                PopupMenuItem<int>(
+                  value: 0,
+                  child: Text(
+                    "Vision",
+                    style: TextStyle(color: Colors.white),
+                  ),
                 ),
-              ),
-            ],
-            onSelected: (item) => mission(context),
+              ],
+              onSelected: (value) => mission(context),
+            ),
           ),
           title: Text("Welcome To IT Department"),
           backgroundColor: Colors.deepPurple,
@@ -114,7 +117,7 @@ class MyApp extends StatelessWidget {
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
-          title: Text('Welcome To Lab 3'),
+          title: Text('Welcome To Lab 2'),
           content: Column(
             children: [
               Image.network(
@@ -160,6 +163,7 @@ class MyApp extends StatelessWidget {
   }
 
   void mission(BuildContext context) {
+    print("Hello");
     showDialog(
       context: context,
       builder: (BuildContext context) {
